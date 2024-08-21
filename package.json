@@ -1,0 +1,18 @@
+{
+  "name": "random-number-game",
+  "version": "1.0.0",
+  "description": "A fullstack random number generator game project build for Lacerba",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "enalotto",
+    "lacerba",
+    "random",
+    "number",
+    "generator"
+  ],
+  "author": "Daniele Fabio <me@danielefabio.com>",
+  "license": "ISC"
+}
