@@ -1,5 +1,5 @@
 {
-  "name": "random-number-game",
+  "name": "random-number-generator",
   "version": "1.0.0",
   "description": "A fullstack random number generator game project build for Lacerba",
   "main": "index.ts",
@@ -14,5 +14,8 @@
     "generator"
   ],
   "author": "Daniele Fabio <me@danielefabio.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.4.2"
+  }
 }
