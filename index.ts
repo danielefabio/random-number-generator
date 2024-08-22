@@ -51,7 +51,7 @@ const cities :string[]  = [
 async function estrai(){
     let estrazioni : { [city : string] : number[]} = {};
     cities.forEach(city => {
-        estrazioni[city] = generateNNumbersFromTo(5, 0,100);
+        estrazioni[city] = generateNNumbersFromTo(5, 1,100);
     });
     return estrazioni;
 }
