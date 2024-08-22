@@ -48,12 +48,54 @@ const cities :string[]  = [
     'Venezia',
     'Nazionale'
 ];
-let estrazioni : { [city : string] : number[]} = {};
-function estrai(){
+async function estrai(){
+    let estrazioni : { [city : string] : number[]} = {};
     cities.forEach(city => {
         estrazioni[city] = generateNNumbersFromTo(5, 0,100);
     });
+    return estrazioni;
 }
 
-estrai();
-console.log(JSON.stringify(estrazioni, null, 2));
+//estrai();
+//console.log(JSON.stringify(estrazioni, null, 2));
+
+function createNumbersDiv(numbers: number[]) : Element{
+    const div = document.createElement('div');
+    numbers.forEach(number => {
+        const numberDiv = document.createElement('div');
+        numberDiv.className = 'circle';
+        const el = document.createElement('p')
+        el.innerText = number.toString();
+        numberDiv.appendChild(el);
+        div.appendChild(numberDiv);
+    });
+    return div;
+}
+
+function crea_ruota(){
+    estrai().then((estrazioni) => {
+        console.log(JSON.stringify(estrazioni, null, 2));
+        if(container){
+            container.innerHTML = ''
+            //container.innerHTML = JSON.stringify(estrazioni, null, 2);
+            cities.forEach(city => {
+                const cityDiv = document.createElement('div');
+                cityDiv.className = 'city_div';
+                const name = document.createElement('h2');
+                name.innerText = city;
+                const numbersDiv = createNumbersDiv(estrazioni[city]);
+                cityDiv.appendChild(name);
+                cityDiv.appendChild(numbersDiv);
+                container.appendChild(cityDiv);
+            });
+        }
+    });
+    
+}
+
+const container = document.getElementById('estrazioni');
+const btn_estrai = document.getElementById('btn_estrai');
+
+if(btn_estrai){
+    btn_estrai.onclick = () => crea_ruota();
+}
